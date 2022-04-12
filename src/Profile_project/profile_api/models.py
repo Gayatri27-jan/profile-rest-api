@@ -40,7 +40,7 @@ class UserProfileManager(BaseUserManager):
 class UserProfile(AbstractBaseUser, PermissionsMixin):
     """
     Represent a "user Profile " inside the system
-    """
+     """
 
     email = models.EmailField(max_length=225, unique=True)
     name = models.CharField(max_length=225)
@@ -54,7 +54,7 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
 
     def get_username(self):
         """
-        use to get username
+        use to get user name
         :return: name
         """
         return self.name
