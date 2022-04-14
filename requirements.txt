@@ -111,3 +111,5 @@ wsproto==1.0.0
 yarl==1.7.2
 zc.lockfile==2.0
 zipp==3.7.0
+
+permission~=0.4.1
