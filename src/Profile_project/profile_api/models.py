@@ -50,7 +50,7 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     objects = UserProfileManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELD = 'name'
+    REQUIRED_FIELDS = ['name']
 
     def get_username(self):
         """
@@ -72,3 +72,16 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
         :return: str object
         """
         return self.email
+
+
+class ProfileFeedItem(models.Model):
+    """Profile status update"""
+
+    user_profile = models.ForeignKey("UserProfile", on_delete=models.CASCADE)
+    status_text = models.CharField(max_length=225)
+    create_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        """Return model as string"""
+        return self.status_text
+
